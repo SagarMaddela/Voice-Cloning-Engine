@@ -117,15 +117,15 @@ class SpeechGenerator:
         try:
             # Input validations
             if not text or not text.strip():
-                yield 0, None, "❌ Error: Input text cannot be empty.", None
+                yield 0, None, "Error: Input text cannot be empty.", None
                 return
             
             if not voice_name:
-                yield 0, None, "❌ Error: No voice selected. Please select a voice.", None
+                yield 0, None, "Error: No voice selected. Please select a voice.", None
                 return
             
             if not self.voice_manager.voice_exists(voice_name):
-                yield 0, None, f"❌ Error: Voice '{voice_name}' not found.", None
+                yield 0, None, f"Error: Voice '{voice_name}' not found.", None
                 return
             
             start_time = time.time()
@@ -201,10 +201,10 @@ class SpeechGenerator:
             
             # Calculate and show total time taken
             total_time = time.time() - start_time
-            final_status = f"✅ Generation complete!\nTotal time: {self.format_time(total_time)}"
+            final_status = f"Generation complete!\nTotal time: {self.format_time(total_time)}"
             
             yield 100, str(TEMP_OUTPUT_PATH), final_status, None
             
         except Exception as e:
-            error_status = f"❌ Error generating speech: {str(e)}"
+            error_status = f"Error generating speech: {str(e)}"
             yield 0, None, error_status, None

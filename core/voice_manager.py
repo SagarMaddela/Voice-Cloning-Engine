@@ -124,16 +124,16 @@ class VoiceManager:
         try:
             # Input validations
             if not new_name or not new_name.strip():
-                return "❌ Error: New Voice name cannot be empty.", gr.update()
+                return " Error: New Voice name cannot be empty.", gr.update()
             
             if not ref_text or not ref_text.strip():
-                return "❌ Error: Reference text cannot be empty.", gr.update()
+                return " Error: Reference text cannot be empty.", gr.update()
             
             if not audio_file:
-                return "❌ Error: No reference audio file provided.", gr.update()
+                return " Error: No reference audio file provided.", gr.update()
             
             if self.voice_exists(new_name):
-                return f"❌ Error: Voice '{new_name}' already exists. Please choose a different name.", gr.update()
+                return f"Error: Voice '{new_name}' already exists. Please choose a different name.", gr.update()
             
             # Ensure samples directory exists
             SAMPLES_DIR.mkdir(exist_ok=True)
@@ -158,12 +158,12 @@ class VoiceManager:
             self.voices["samples"][new_name] = (str(txt_path), str(pt_path))
             
             return (
-                f"✅ Voice '{new_name}' cloned and saved successfully!",
+                f" Voice '{new_name}' cloned and saved successfully!",
                 gr.update(choices=self.get_voice_list(), value=new_name)
             )
             
         except Exception as e:
-            return f"❌ Error cloning voice: {e}", gr.update()
+            return f" Error cloning voice: {e}", gr.update()
     
     def delete_voice(self, voice_name):
         """
@@ -177,7 +177,7 @@ class VoiceManager:
         """
         try:
             if not self.voice_exists(voice_name):
-                return f"❌ Voice '{voice_name}' not found!", gr.update()
+                return f" Voice '{voice_name}' not found!", gr.update()
             
             # Define file paths
             txt_path = SAMPLES_DIR / f"{voice_name}.txt"
@@ -197,9 +197,9 @@ class VoiceManager:
             new_selected = remaining_voices[0] if remaining_voices else None
             
             return (
-                f"✅ Voice '{voice_name}' deleted successfully!",
+                f"Voice '{voice_name}' deleted successfully!",
                 gr.update(choices=remaining_voices, value=new_selected)
             )
             
         except Exception as e:
-            return f"❌ Error deleting voice: {e}", gr.update()
+            return f" Error deleting voice: {e}", gr.update()

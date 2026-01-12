@@ -10,7 +10,6 @@ A professional, modular voice cloning application using NeuTTS for few-shot voic
 - **Speed Control**: Adjust playback speed from 0.5x to 2.0x
 - **Smart Text Processing**: Automatic text chunking for optimal generation
 - **Progress Tracking**: Real-time progress updates during generation
-- **Modern UI**: Clean Gradio interface with YouTube channel integration
 
 ## 🏗️ Architecture
 
@@ -257,40 +256,4 @@ You can manually add voices by placing these files in the `samples/` directory.
 3. **UI Changes**: Edit `ui/gradio_interface.py`
 4. **Configuration**: Update `config.py`
 
-## 📄 License
 
-This project uses the following open-source components:
-
-- **NeuTTS**: Check [neuttsair repository](https://github.com/neuphonic/neuttsair) for license
-- **Gradio**: Apache License 2.0
-- **PyTorch**: BSD-style license
-
-## 🙏 Credits
-
-- **Neuphonic** for the NeuTTS model
-- **Gradio** team for the UI framework
-- **eSpeak-NG** for phonemization
-
-## 📞 Support
-
-For issues or questions:
-
-1. Check the [Troubleshooting](#troubleshooting) section
-2. Review console logs for error messages
-3. Ensure all dependencies are correctly installed
-4. Verify Python version is 3.9-3.11
-
----
-
-**Built with ❤️ for professional voice cloning**
-
-## 🔄 Migration from Original app.py
-
-The original monolithic `app.py` (512 lines) has been refactored into a modular structure:
-
-- Original file backed up as `app_backup.py`
-- New entry point is `main.py`
-- All functionality preserved
-- Improved code organization and maintainability
-
-To use the new structure, simply run `python main.py` instead of `python app.py`.
