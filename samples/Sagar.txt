@@ -1,0 +1,1 @@
+Hi. I'm sagar. I 'm applying for the AI Research intern role at Voibe and I completed creating a voice cloning engine which involves zero-shot training as a part of assignment round.
